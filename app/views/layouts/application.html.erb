@@ -20,6 +20,12 @@
             <span class="icon-bar"></span>
           </button>
         <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+        <a class="navbar-brand" id="Sign up" href="<%= new_user_url %>"/>Sign up</a>
+        <a class="navbar-brand" id="Sign in" href="/signin"/>Sign in</a>
+        <% if session[:user_id] !=  nil %>
+          <a class="navbar-brand" id="Log Out" href="/signout"/>Log Out</a>
+          <a class="navbar-brand" id="See Attractions" href="/attractions"/>See Attractions</a>
+        <% end %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -31,6 +37,8 @@
 
     <!-- content -->
     <div class="container"  role="main">
+      <%= render "layouts/messages" %>
+
       <%= yield %>
     </div>
 
